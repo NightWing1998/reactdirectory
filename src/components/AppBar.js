@@ -10,25 +10,27 @@ const styles = {
 		flexGrow: 1,
 		fontSize: 'calc(10px + 2vmin)',
 		textAlign : 'center',
-		alignItems : 'center',
-		justifyContent : 'space-between'
 	},
+	appbar : {
+		alignItems : 'center',
+		justifyContent : 'space-between',
+	}
 };
 
 function SimpleAppBar(props) {
-  const { classes } = props;
+	const { classes } = props;
 
-  return (
-	<div className={classes.root}>
-		<AppBar position="static" color="default">
-			<Toolbar>
-				<Typography variant="h6" color="inherit">
-					Photos
-				</Typography>
-			</Toolbar>
-		</AppBar>
-	</div>
-  );
+	return (
+		<div className={classes.root}>
+			<AppBar position="static" color='primary' className={classes.appbar}>
+				<Toolbar>
+					<Typography variant="h6" color='secondary'>
+						Directory
+					</Typography>
+				</Toolbar>
+			</AppBar>
+		</div>
+	);
 }
 
 SimpleAppBar.propTypes = {
