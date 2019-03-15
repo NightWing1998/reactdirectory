@@ -6,7 +6,7 @@
 
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/NightWing1998/reactdirectory/issues)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![HitCount](http://hits.dwyl.io/nurdtechie98/drive-cli.svg)](http://hits.dwyl.io/NightNing1998/reactdirectory)
+[![HitCount](http://hits.dwyl.io/NightWing1998/reactdirectory.svg)](http://hits.dwyl.io/NightNing1998/reactdirectory)
 
 ------------------------------------------
 ## Demo :-
