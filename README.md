@@ -24,7 +24,7 @@ You can directly visit the link below to test it!!
 
 ------------------------------------------
 ## Author
-Dhruvil Shah - [nurdtechie98](https://github.com/NightWing1998)
+Dhruvil Shah - [NightWing1998](https://github.com/NightWing1998)
 
 See also the list of [contributors](https://github.com/NightWing1998/reactdirectory/graphs/contributors) who participated in this project.
 
