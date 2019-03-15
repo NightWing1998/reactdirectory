@@ -10,6 +10,7 @@ const styles = {
 		flexGrow: 1,
 		fontSize: 'calc(10px + 2vmin)',
 		textAlign : 'center',
+		marginBottom : '25px'
 	},
 	appbar : {
 		alignItems : 'center',
