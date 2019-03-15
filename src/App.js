@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import AppBar from './components/AppBar';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core';
-import { List, ListItem, Typography, IconButton, ListItemSecondaryAction,TextField} from '@material-ui/core';
+import { List, ListItem, Typography, IconButton, TextField} from '@material-ui/core';
 import { Delete } from '@material-ui/icons';
 import {HashRouter as Router,Link,Switch,Route} from 'react-router-dom';
 
@@ -71,8 +71,11 @@ class App extends Component {
 				name: 'Rahil',
 				number: '9869225071'
 			}, {
-				name: 'Khushali',
-				number: '9699580280'
+				name: 'Shivam',
+				number: '9967884656'
+			},{
+				name: 'Tarun',
+				number: '8369989238'
 			}],
 			tempContact : {
 				name : '',
@@ -108,6 +111,18 @@ class App extends Component {
 		})
 	}
 
+	insertContact = (event) => {
+		let contacts = this.state.contacts;
+		contacts.push(this.state.tempContact);
+		this.setState({
+			contacts : contacts,
+			tempContact : {
+				name : '',
+				number : ''
+			}
+		})
+	}
+
 	add(){
 		return(
 			<center>
@@ -116,7 +131,7 @@ class App extends Component {
 				<Typography variant='h6' >Name: {this.state.tempContact.name}</Typography>		
 				<Typography variant='h6' >Phone No: {this.state.tempContact.number}</Typography>
 				<Link to="/">
-					<Button variant="raised" style={button}>
+					<Button variant="raised" style={button} onClick = {() => this.insertContact()}>
 						ADD
 					</Button>
 				</Link>
@@ -146,7 +161,7 @@ class App extends Component {
 
 	home(){
 		return (
-			<div>
+			<center>
 				<Link to="/add">
 					<Button variant="contained" style={button}>
 						ADD
@@ -159,15 +174,13 @@ class App extends Component {
 								<ListItem key={number}>
 									<Typography variant='h6' style={typography}>{name}</Typography>
 									<Typography variant='h6' style={typography}>{number}</Typography>
-									<ListItemSecondaryAction>
 										<IconButton style={iconButton} onClick={() => this.handleDelete({ number })} >
 											<Delete />
 										</IconButton>
-									</ListItemSecondaryAction>
 								</ListItem>
 							)}
 						</List>
-			</div>
+			</center>
 		);
 	}
 
