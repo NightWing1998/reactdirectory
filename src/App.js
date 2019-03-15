@@ -1,29 +1,29 @@
 import React, { Component } from 'react';
 import AppBar from './components/AppBar';
-import { createMuiTheme,MuiThemeProvider } from '@material-ui/core/styles';
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core';
-import { List, ListItem,Typography,IconButton,ListItemSecondaryAction } from '@material-ui/core';
+import { List, ListItem, Typography, IconButton, ListItemSecondaryAction } from '@material-ui/core';
 import { Delete } from '@material-ui/icons';
 
 const AppBartheme = createMuiTheme({
-	palette : {
-		primary : {
-			light : '#555555',
-			dark : '#111111',
-			main : '#333333',
-			contrastText : '#ffffff'
+	palette: {
+		primary: {
+			light: '#555555',
+			dark: '#111111',
+			main: '#333333',
+			contrastText: '#ffffff'
 		},
-		secondary : {
-			light : '#ffffff',
-			dark : '#dddddd',
-			main : '#eeeeee',
-			contrastText : '#111111'
+		secondary: {
+			light: '#ffffff',
+			dark: '#dddddd',
+			main: '#eeeeee',
+			contrastText: '#111111'
 		},
-		error : {
-			light : '#cc0000',
-			dark : '#550000',
-			main : '#aa0000',
-			contrastText : '#00ffff'
+		error: {
+			light: '#cc0000',
+			dark: '#550000',
+			main: '#aa0000',
+			contrastText: '#00ffff'
 		}
 	},
 	typography: {
@@ -32,82 +32,87 @@ const AppBartheme = createMuiTheme({
 });
 
 var typography = {
-	width : '33%',
-	margin : '0',
-	float : 'left',
-	opacity : '0.8',
-	textAlign : 'center',
-	letterSpacing : '1px'
+	width: '33%',
+	margin: '0',
+	float: 'left',
+	opacity: '0.8',
+	textAlign: 'center',
+	letterSpacing: '1px'
 },
-iconButton = {
-	color : 'crimson',
-	opacity : '0.8'
-},header = {
-	width : '33%',
-	margin : '0',
-	float : 'left',
-	textAlign : 'center',
-	letterSpacing : '1px'
-}
-
+	iconButton = {
+		color: 'crimson',
+		opacity: '0.8'
+	}, header = {
+		width: '33%',
+		margin: '0',
+		float: 'left',
+		textAlign: 'center',
+		letterSpacing: '1px'
+	},
+	button = {
+		backgroundColor : 'green',
+		letterSpacing : '1px',
+		color : 'white'
+	}
+	
 const mainTheme = createMuiTheme({
-	palette : {
-		primary : {
-			light : '#555555',
-			dark : '#111111',
-			main : '#333333',
-			contrastText : '#ffffff'
+	palette: {
+		primary: {
+			light: '#555555',
+			dark: '#111111',
+			main: '#333333',
+			contrastText: '#ffffff'
 		},
-		secondary : {
-			light : '#ffffff',
-			dark : '#dddddd',
-			main : '#eeeeee',
-			contrastText : '#111111'
+		secondary: {
+			light: '#ffffff',
+			dark: '#dddddd',
+			main: '#eeeeee',
+			contrastText: '#111111'
 		},
-		error : {
-			light : '#c00000',
-			dark : '#500000',
-			main : '#0a0000',
-			contrastText : '#00ffff'
+		error: {
+			light: '#c00000',
+			dark: '#500000',
+			main: '#0a0000',
+			contrastText: '#00ffff'
 		}
 	},
 	typography: {
 		useNextVariants: true,
-		width : '33%',
-		margin : '0',
-		float : 'left',
-		opacity : '0.8'
+		width: '33%',
+		margin: '0',
+		float: 'left',
+		opacity: '0.8'
 	},
-	iconButton : {
-		color : 'crimson',
-		opacity : '0.8'
+	iconButton: {
+		color: 'crimson',
+		opacity: '0.8'
 	}
 });
 
 class App extends Component {
-	constructor(props){
+	constructor(props) {
 		super(props);
 		this.state = {
-			contacts : [{
-				name : 'Dhruvil',
-				number : '8850392965'
-			},{
-				name : 'Rahil',
-				number : '9869225071'
-			},{
-				name : 'Khushali',
-				number : '9699580280'
+			contacts: [{
+				name: 'Dhruvil',
+				number: '8850392965'
+			}, {
+				name: 'Rahil',
+				number: '9869225071'
+			}, {
+				name: 'Khushali',
+				number: '9699580280'
 			}],
 		}
 	}
 
 	handleDelete = (number) => {
-		console.log(number.number,this.state);
+		console.log(number.number, this.state);
 		this.setState(({ contacts }) => ({
 			contacts: contacts.filter(ex => ex.number !== number.number)
 		}))
 	}
-	
+
 	render() {
 		return (
 			<div>
@@ -117,24 +122,26 @@ class App extends Component {
 					</MuiThemeProvider>
 				</header>
 				<main>
-					<MuiThemeProvider theme={mainTheme}>
-							<Button >ADD</Button><br/>
-							<Typography variant = 'h6' style={header}>NAME</Typography>
-							<Typography variant = 'h6' style={header}>NUMBER</Typography>
-							<List>
-								{ this.state.contacts.map( ({name,number}) => 
-									<ListItem key={number}>
-										<Typography variant = 'h6' style={typography}>{name}</Typography>
-										<Typography variant = 'h6'style={typography}>{number}</Typography>
-										<ListItemSecondaryAction>
-											<IconButton style={iconButton} onClick={()=>this.handleDelete({number})} >
-												<Delete />
-											</IconButton>	
-										</ListItemSecondaryAction>	
-									</ListItem>
-								)}
-							</List>
-					</MuiThemeProvider>
+					<div id='change'>
+						<Button variant="contained" style={button}>
+							ADD
+						</Button><br /><br />
+						<Typography variant='h6' style={header}>NAME</Typography>
+						<Typography variant='h6' style={header}>NUMBER</Typography>
+						<List>
+							{this.state.contacts.map(({ name, number }) =>
+								<ListItem key={number}>
+									<Typography variant='h6' style={typography}>{name}</Typography>
+									<Typography variant='h6' style={typography}>{number}</Typography>
+									<ListItemSecondaryAction>
+										<IconButton style={iconButton} onClick={() => this.handleDelete({ number })} >
+											<Delete />
+										</IconButton>
+									</ListItemSecondaryAction>
+								</ListItem>
+							)}
+						</List>
+					</div>
 				</main>
 			</div>
 		);
